@@ -1,0 +1,557 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #190e27;
+    color: white;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* BACKGROUND STARS */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: #ffe0f0;
+    animation: twinkle 2s infinite alternate;
+}
+
+/* PASSWORD SCREEN */
+
+.lock-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+
+    background:
+        radial-gradient(circle at top, #753d69, transparent 55%),
+        linear-gradient(135deg, #190e27, #432044, #20112f);
+}
+
+.lock-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 35px 25px;
+    text-align: center;
+
+    background: rgba(255,255,255,0.09);
+    border: 1px solid #f3a2cd;
+    border-radius: 28px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 0 40px #ff80c333;
+
+    animation: cardEntry 1s ease;
+}
+
+.lock-heart {
+    font-size: 70px;
+    animation: heartbeat 1.3s infinite;
+}
+
+.eyebrow {
+    color: #ffafd5;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin: 15px 0;
+}
+
+.lock-card h1 {
+    color: #ffd4e9;
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.lock-text {
+    color: #f4d8e9;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.lock-icon {
+    font-size: 35px;
+    margin: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ff9fcf;
+    border-radius: 30px;
+    background: #ffffff18;
+    outline: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+input::placeholder {
+    color: #e7bfd8;
+}
+
+button {
+    background: linear-gradient(45deg, #ff4f9a, #b84cdb);
+    border: none;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px #df62a755;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px #ff80c3;
+}
+
+#passwordForm button {
+    width: 100%;
+}
+
+/* PASSWORD HINT */
+
+.hint-box {
+    background: #ffffff12;
+    border: 1px dashed #f3a2cd;
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: 25px;
+    color: #ffe1ef;
+}
+
+.hint-box span {
+    color: #ffb4d7;
+    font-weight: bold;
+}
+
+.hint-box p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.hint-box small {
+    color: #e8b9d6;
+}
+
+#errorMessage {
+    color: #ff9fba;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.lock-footer {
+    color: #e9b6d2;
+    margin-top: 25px;
+    font-size: 12px;
+}
+
+/* QR CODE */
+
+.qr-share {
+    text-align: center;
+    margin-top: 25px;
+    padding: 20px;
+    width: 100%;
+    max-width: 430px;
+    border: 1px solid #e99aca;
+    border-radius: 20px;
+    background: #ffffff12;
+    position: relative;
+    z-index: 2;
+}
+
+.qr-share h3 {
+    color: #ffd4e9;
+    margin-bottom: 10px;
+}
+
+.qr-share p,
+.qr-share small {
+    color: #f2d1e4;
+    line-height: 1.7;
+}
+
+#qrcode {
+    display: table;
+    margin: 18px auto;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+    min-width: 120px;
+    min-height: 120px;
+}
+
+#qrcode img {
+    display: block;
+}
+
+/* MAIN WEBSITE */
+
+.main-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 35px 15px;
+
+    background:
+        radial-gradient(ellipse at top, #63365e, transparent 50%),
+        linear-gradient(180deg, #21122e, #3b1c3b, #190e27);
+
+    animation: cardEntry 1.3s ease;
+}
+
+header {
+    text-align: center;
+    margin: 10px auto 35px;
+}
+
+header h1 {
+    color: #ffd0e6;
+    font-size: clamp(25px, 5vw, 42px);
+    margin: 12px 0;
+    text-shadow: 0 0 20px #ff70bb;
+}
+
+.subtitle {
+    color: #edc9df;
+}
+
+/* COUPLE SCENE */
+
+.couple-scene {
+    max-width: 700px;
+    margin: auto;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 28px;
+    border: 1px solid #ef9bc9;
+
+    background: linear-gradient(
+        135deg,
+        #ffe5ef,
+        #ffc4dd,
+        #f8d8ed
+    );
+
+    box-shadow: 0 0 35px #e65fa744;
+    overflow: hidden;
+    position: relative;
+}
+
+.couple-image {
+    display: block;
+    width: min(90%, 370px);
+    height: auto;
+    margin: 15px auto;
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px #a83b7040;
+    animation: coupleFloat 3s infinite ease-in-out;
+}
+
+.couple-scene h2 {
+    color: #a92c67;
+    margin-top: 20px;
+}
+
+.couple-scene p {
+    color: #a23a69;
+    margin: 10px 0;
+}
+
+.moon {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 30px;
+    animation: heartFloat 4s infinite ease-in-out;
+    z-index: 3;
+}
+
+.heart-one {
+    top: 15%;
+    left: 8%;
+}
+
+.heart-two {
+    top: 35%;
+    right: 8%;
+    animation-delay: 1s;
+}
+
+.heart-three {
+    bottom: 15%;
+    left: 12%;
+    animation-delay: 2s;
+}
+
+/* APOLOGY CARD */
+
+.apology-card {
+    max-width: 680px;
+    margin: 40px auto;
+    padding: 35px 25px;
+    text-align: center;
+
+    background: #ffffff10;
+    border: 1px solid #e99aca;
+    border-radius: 28px;
+
+    box-shadow: 0 0 35px #d95b9a22;
+
+    animation: cardEntry 1.5s ease;
+}
+
+.letter-icon {
+    font-size: 55px;
+    animation: heartbeat 1.3s infinite;
+}
+
+.apology-card h2 {
+    color: #ffd1e6;
+    font-size: 27px;
+    margin: 18px 0;
+}
+
+.letter-text {
+    color: #f7dce9;
+    line-height: 2;
+    font-size: 15px;
+    text-align: center;
+}
+
+.letter-text p {
+    margin: 18px 0;
+}
+
+.highlight {
+    color: #ffacd4;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* PROMISE BOX */
+
+.promise-box {
+    margin: 30px 0;
+    padding: 25px 15px;
+
+    border: 1px solid #f58ab9;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #ff69b426,
+        #ffffff12
+    );
+}
+
+.promise-box h3 {
+    color: #ffafd4;
+    margin-bottom: 15px;
+    font-size: 23px;
+}
+
+.promise-box p {
+    color: #ffe0ef;
+    line-height: 2.1;
+}
+
+/* FINAL MESSAGE */
+
+.big-heart {
+    font-size: 70px;
+    margin: 20px;
+    animation: heartbeat 1.3s infinite;
+}
+
+.final-love {
+    text-shadow: 0 0 15px #ff68b2;
+}
+
+.ending-message {
+    color: #f4d7e8;
+    line-height: 1.9;
+    margin: 20px 0;
+}
+
+#hugText {
+    color: #ffc5e2;
+    margin-top: 20px;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+/* ENDING */
+
+.ending {
+    text-align: center;
+    max-width: 550px;
+    margin: 55px auto;
+}
+
+.ending h2 {
+    color: #ffd0e6;
+    margin: 15px;
+}
+
+.ending p {
+    color: #eec9df;
+    line-height: 1.8;
+}
+
+.ending h3 {
+    color: #ffacd4;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #dba9ca;
+    font-size: 13px;
+}
+
+/* ANIMATIONS */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.17);
+    }
+}
+
+@keyframes coupleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes heartFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-25px) scale(1.2);
+    }
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes cardEntry {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 480px) {
+
+    .lock-card {
+        padding: 30px 18px;
+    }
+
+    .lock-card h1 {
+        font-size: 26px;
+    }
+
+    .apology-card {
+        padding: 25px 17px;
+    }
+
+    .apology-card h2 {
+        font-size: 22px;
+    }
+
+    .letter-text {
+        font-size: 14px;
+    }
+
+    .couple-image {
+        width: 95%;
+    }
+}
+
+.teddy-gallery {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    text-align: center;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ffe0ed, #ffc4dc);
+    color: #a83268;
+}
+
+.teddy-gallery img {
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    border-radius: 20px;
+    margin-top: 20px;
+    animation: teddyFloat 3s ease-in-out infinite;
+}
+
+.teddy-gallery h3 {
+    margin-top: 20px;
+    font-size: 23px;
+}
+
+@keyframes teddyFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
